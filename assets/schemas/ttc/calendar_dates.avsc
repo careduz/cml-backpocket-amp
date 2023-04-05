@@ -1,0 +1,26 @@
+{
+  "name": "calendar_dates",
+  "type": "record",
+  "namespace": "raw",
+  "fields": [
+    {
+      "name": "service_id",
+      "type": "string"
+    },
+    {
+      "name": "date",
+      "type": "string"
+    },
+    {
+      "name": "exception_type",
+      "doc": "Indicates whether service is available on the date specified in the date field. Valid options are: 1 (Service has been added for the specified date), and 2 (Service has been removed for the specified date.).",
+      "type": "int"
+    },
+    {
+      "name": "extract_time",
+      "type": ["null", "long"],
+      "logicalType": "timestamp-millis",
+      "default": null
+    }
+  ]
+}

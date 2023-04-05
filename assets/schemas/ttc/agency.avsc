@@ -1,0 +1,49 @@
+{
+  "name": "agency",
+  "type": "record",
+  "namespace": "raw",
+  "fields": [
+    {
+      "name": "agency_id",
+      "type": "string"
+    },
+    {
+      "name": "agency_name",
+      "type": "string"
+    },
+    {
+      "name": "agency_url",
+      "type": "string"
+    },
+    {
+      "name": "agency_timezone",
+      "type": "string"
+    },
+    {
+      "name": "agency_lang",
+      "type": ["null", "string"],
+      "default": null
+    },
+    {
+      "name": "agency_phone",
+      "type": ["null", "string"],
+      "default": null
+    },
+    {
+      "name": "agency_fare_url",
+      "type": ["null", "string"],
+      "default": null
+    },
+    {
+      "name": "agency_email",
+      "type": ["null", "string"],
+      "default": null
+    },
+    {
+      "name": "extract_time",
+      "type": ["null", "long"],
+      "logicalType": "timestamp-millis",
+      "default": null
+    }
+  ]
+}

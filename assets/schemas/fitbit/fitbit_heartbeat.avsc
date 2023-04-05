@@ -1,0 +1,42 @@
+{
+  "name": "fitbit_heartbeat",
+  "doc": "topic for individual heartbeats received from the Fitbit Intraday Heartbeat API",
+  "namespace": "fitbit.heartbeat",
+  "type": "record",
+  "fields": [
+    {
+      "name": "time",
+      "type": "string"
+    },
+    {
+      "name": "value",
+      "type": "long"
+    },
+    {
+      "name": "date",
+      "type": ["null", "string"]
+    },
+    {
+      "name": "interval",
+      "type": ["null", "long"]
+    },
+    {
+      "name": "granularity",
+      "type": ["null", "string"]
+    },
+    {
+      "name": "userID",
+      "type": ["null", "string"]
+    },
+    {
+      "name": "eventTimestamp",
+      "type": "long",
+      "logicalType": "timestamp-millis"
+    },
+    {
+      "name": "requestTimestamp",
+      "type": "long",
+      "logicalType": "timestamp-millis"
+    }
+  ]
+}

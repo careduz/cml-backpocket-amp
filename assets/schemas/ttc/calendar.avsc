@@ -1,0 +1,60 @@
+{
+  "name": "calendar",
+  "type": "record",
+  "namespace": "raw",
+  "fields": [
+    {
+      "name": "service_id",
+      "type": "string"
+    },
+    {
+      "name": "monday",
+      "doc": "Indicates whether the service operates on all Mondays in the date range specified by the start_date and end_date fields. Note that exceptions for particular dates may be listed in calendar_dates.txt. Valid options are:\n\n1 - Service is available for all Mondays in the date range.\n0 - Service is not available for Mondays in the date range.",
+      "type": "int"
+    },
+    {
+      "name": "tuesday",
+      "doc": "Functions in the same way as monday except applies to Tuesdays",
+      "type": "int"
+    },
+    {
+      "name": "wednesday",
+      "doc": "Functions in the same way as monday except applies to Wednesdays",
+      "type": "int"
+    },
+    {
+      "name": "thursday",
+      "doc": "Functions in the same way as monday except applies to Thursdays",
+      "type": "int"
+    },
+    {
+      "name": "friday",
+      "doc": "Functions in the same way as monday except applies to Fridays",
+      "type": "int"
+    },
+    {
+      "name": "saturday",
+      "doc": "Functions in the same way as monday except applies to Saturdays",
+      "type": "int"
+    },
+    {
+      "name": "sunday",
+      "doc": "Functions in the same way as monday except applies to Sundays",
+      "type": "int"
+    },
+    {
+      "name": "start_date",
+      "type": "string"
+    },
+    {
+      "name": "end_date",
+      "type": "string"
+    },
+    {
+      "name": "extract_time",
+      "type": ["null", "long"],
+      "logicalType": "timestamp-millis",
+      "default": null
+    }
+  ]
+}

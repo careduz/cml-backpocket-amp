@@ -1,0 +1,61 @@
+{
+  "name": "tweet",
+  "type": "record",
+  "namespace": "com.cloudera",
+  "fields": [
+    { "name": "created_at", "type": "string" },
+    { "name": "id", "type": "string" },
+    { "name": "text", "type": "string" },
+    { "name": "favorited", "type": "boolean" },
+    { "name": "retweeted", "type": "boolean" },
+    { "name": "lang", "type": "string" },
+    {
+      "name": "timestamp_ms",
+      "type": "string",
+      "logicalType": "timestamp-millis"
+    },
+    { "name": "quote_count", "type": "long" },
+    { "name": "reply_count", "type": "long" },
+    { "name": "retweet_count", "type": "long" },
+    { "name": "favorite_count", "type": "long" },
+    { "name": "user_id", "type": "long" },
+    { "name": "user_name", "type": "string" },
+    { "name": "user_screen_name", "type": "string" },
+    { "name": "user_location", "type": ["null", "string"], "default": null },
+    { "name": "user_url", "type": ["null", "string"], "default": null },
+    {
+      "name": "user_description",
+      "type": ["null", "string"],
+      "default": null
+    },
+    {
+      "name": "user_translator_type",
+      "type": ["null", "string"],
+      "default": null
+    },
+    { "name": "user_protected", "type": "boolean" },
+    { "name": "user_verified", "type": "boolean" },
+    { "name": "user_followers_count", "type": "long" },
+    { "name": "user_friends_count", "type": "long" },
+    { "name": "user_listed_count", "type": "long" },
+    { "name": "user_favourites_count", "type": "long" },
+    { "name": "user_statuses_count", "type": "long" },
+    { "name": "user_created_at", "type": "string" },
+    { "name": "user_geo_enabled", "type": "boolean" },
+    { "name": "user_contributors_enabled", "type": "boolean" },
+    { "name": "user_is_translator", "type": "boolean" },
+    { "name": "user_default_profile", "type": "boolean" },
+    { "name": "in_reply_to_id", "type": ["null", "string"], "default": null },
+    {
+      "name": "in_reply_to_screen_name",
+      "type": ["null", "string"],
+      "default": null
+    },
+    {
+      "name": "in_reply_to_user_id",
+      "type": ["null", "long"],
+      "default": null
+    },
+    { "name": "retweet_of_id", "type": ["null", "string"], "default": null }
+  ]
+}

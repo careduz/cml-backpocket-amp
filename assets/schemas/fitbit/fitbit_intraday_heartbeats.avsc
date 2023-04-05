@@ -1,0 +1,150 @@
+{
+  "name": "fitbit_intraday_heartbeats",
+  "doc": "Fitbit Intraday Heartbeat API response",
+  "type": "record",
+  "namespace": "fitbit.intraday.heartbeats",
+  "fields": [
+    {
+      "name": "userID",
+      "type": ["null", "string"]
+    },
+    {
+      "name": "activitiesHeart",
+      "type": {
+        "type": "array",
+        "items": {
+          "name": "activity",
+          "type": "record",
+          "fields": [
+            {
+              "name": "dateTime",
+              "type": "string"
+            },
+            {
+              "name": "value",
+              "type": {
+                "name": "valuerecord",
+                "type": "record",
+                "fields": [
+                  {
+                    "name": "customHeartRateZones",
+                    "type": {
+                      "type": "array",
+                      "items": "string"
+                    }
+                  },
+                  {
+                    "name": "heartRateZones",
+                    "type": {
+                      "name": "zone",
+                      "type": "array",
+                      "items": {
+                        "name": "heartRateZone",
+                        "type": "record",
+                        "fields": [
+                          {
+                            "name": "caloriesOut",
+                            "type": "double"
+                          },
+                          {
+                            "name": "max",
+                            "type": "long"
+                          },
+                          {
+                            "name": "min",
+                            "type": "long"
+                          },
+                          {
+                            "name": "minutes",
+                            "type": "long"
+                          },
+                          {
+                            "name": "name",
+                            "type": "string"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "name": "restingHeartRate",
+                    "type": "long"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "activitiesHeartIntraday",
+      "type": {
+        "name": "activityIntraday",
+        "type": "record",
+        "fields": [
+          {
+            "name": "dataset",
+            "type": {
+              "type": "array",
+              "items": {
+                "name": "heartbeat",
+                "namespace": "fitbit.heartbeat",
+                "type": "record",
+                "fields": [
+                  {
+                    "name": "time",
+                    "type": "string"
+                  },
+                  {
+                    "name": "value",
+                    "type": "long"
+                  },
+                  {
+                    "name": "date",
+                    "type": ["null", "string"]
+                  },
+                  {
+                    "name": "interval",
+                    "type": ["null", "long"]
+                  },
+                  {
+                    "name": "granularity",
+                    "type": ["null", "string"]
+                  },
+                  {
+                    "name": "userID",
+                    "type": ["null", "string"]
+                  },
+                  {
+                    "name": "requestTimestamp",
+                    "type": ["null", "long"],
+                    "logicalType": "timestamp-millis"
+                  },
+                  {
+                    "name": "eventTimestamp",
+                    "type": ["null", "long"],
+                    "logicalType": "timestamp-millis"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "datasetInterval",
+            "type": "long"
+          },
+          {
+            "name": "datasetType",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "requestTimestamp",
+      "type": ["null", "long"],
+      "logicalType": "timestamp-millis"
+    }
+  ]
+}

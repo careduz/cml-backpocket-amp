@@ -1,0 +1,10 @@
+stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type,parent_station,stop_timezone,wheelchair_boarding
+262,662,Danforth Rd at Kennedy Rd,,43.714379,-79.260939,,,,,,1
+263,929,Davenport Rd at Bedford Rd,,43.674448,-79.399659,,,,,,1
+264,940,Davenport Rd at Dupont St,,43.675511,-79.401938,,,,,,2
+265,1871,Davisville Ave at Cleveland St,,43.702088,-79.378112,,,,,,1
+266,11700,Disco Rd at Attwell Dr,,43.701362,-79.594843,,,,,,1
+267,3478,Disco Rd at Attwell Dr,,43.701043,-79.595806,,,,,,1
+268,3479,Disco Rd at Carlingview Dr East Side,,43.69981,-79.600769,,,,,,1
+269,3480,Disco Rd at Carlingview Dr,,43.699929,-79.601176,,,,,,1
+270,14258,Don Mills Rd at Eglinton Ave East,,43.720674,-79.339121,,,,,,1

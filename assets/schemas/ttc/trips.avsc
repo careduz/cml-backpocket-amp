@@ -1,0 +1,62 @@
+{
+  "name": "trip",
+  "type": "record",
+  "namespace": "raw",
+  "fields": [
+    { "name": "route_id", "type": "string" },
+    {
+      "name": "service_id",
+      "type": "string",
+      "doc": "Identifies a set of dates when service is available for one or more routes"
+    },
+    { "name": "trip_id", "type": "string" },
+    {
+      "name": "trip_headsign",
+      "type": ["null", "string"],
+      "doc": "Text that appears on signage identifying the trip's destination to riders. Use this field to distinguish between different patterns of service on the same route. If the headsign changes during a trip, trip_headsign can be overridden by specifying values for the stop_times.stop_headsign.",
+      "default": null
+    },
+    {
+      "name": "trip_short_name",
+      "type": ["null", "string"],
+      "doc": "Public facing text used to identify the trip to riders, for instance, to identify train numbers for commuter rail trips. If riders do not commonly rely on trip names, leave this field empty. A trip_short_name value, if provided, should uniquely identify a trip within a service day; it should not be used for destination names or limited/express designations.",
+      "default": null
+    },
+    {
+      "name": "direction_id",
+      "type": ["null", "int"],
+      "doc": "Indicates the direction of travel for a trip. This field is not used in routing; it provides a way to separate trips by direction when publishing time tables. Valid options are:\n\n0 - Travel in one direction (e.g. outbound travel).\n1 - Travel in the opposite direction (e.g. inbound travel).",
+      "default": null
+    },
+    {
+      "name": "block_id",
+      "type": ["null", "string"],
+      "doc": "Identifies the block to which the trip belongs. A block consists of a single trip or many sequential trips made using the same vehicle, defined by shared service days and block_id. A block_id can have trips with different service days, making distinct blocks.",
+      "default": null
+    },
+    {
+      "name": "shape_id",
+      "type": ["null", "string"],
+      "doc": "Identifies a geospatial shape that describes the vehicle travel path for a trip.\n\nConditionally required:\nThis field is required if the trip has continuous behavior defined, either at the route level or at the stop time level.\nOtherwise, it's optional.",
+      "default": null
+    },
+    {
+      "name": "wheelchair_accessible",
+      "type": ["null", "int"],
+      "doc": "Indicates wheelchair accessibility. Valid options are:\n\n0 or empty - No accessibility information for the trip.\n1 - Vehicle being used on this particular trip can accommodate at least one rider in a wheelchair.\n2 - No riders in wheelchairs can be accommodated on this trip.",
+      "default": null
+    },
+    {
+      "name": "bikes_allowed",
+      "type": ["null", "int"],
+      "doc": "Indicates whether bikes are allowed. Valid options are:\n\n0 or empty - No bike information for the trip.\n1 - Vehicle being used on this particular trip can accommodate at least one bicycle.\n2 - No bicycles are allowed on this trip.",
+      "default": null
+    },
+    {
+      "name": "extract_time",
+      "type": ["null", "long"],
+      "logicalType": "timestamp-millis",
+      "default": null
+    }
+  ]
+}

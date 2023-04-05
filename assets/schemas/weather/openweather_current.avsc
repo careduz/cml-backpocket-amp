@@ -1,0 +1,224 @@
+{
+  "name": "openweather_current",
+  "type": "record",
+  "namespace": "openweather.current",
+  "fields": [
+    {
+      "name": "coord",
+      "type": {
+        "name": "coordinateDetails",
+        "type": "record",
+        "fields": [
+          {
+            "name": "lon",
+            "type": "double"
+          },
+          {
+            "name": "lat",
+            "type": "double"
+          }
+        ]
+      }
+    },
+    {
+      "name": "base",
+      "type": "string"
+    },
+    {
+      "name": "weather",
+      "type": {
+        "type": "array",
+        "items": {
+          "name": "weatherDetails",
+          "type": "record",
+          "fields": [
+            {
+              "name": "id",
+              "type": "long"
+            },
+            {
+              "name": "main",
+              "type": "string"
+            },
+            {
+              "name": "description",
+              "type": "string"
+            },
+            {
+              "name": "icon",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "main",
+      "type": {
+        "name": "mainDetails",
+        "type": "record",
+        "fields": [
+          {
+            "name": "temp",
+            "type": "double"
+          },
+          {
+            "name": "feels_like",
+            "type": "double"
+          },
+          {
+            "name": "temp_min",
+            "type": "double"
+          },
+          {
+            "name": "temp_max",
+            "type": "double"
+          },
+          {
+            "name": "pressure",
+            "type": "long"
+          },
+          {
+            "name": "humidity",
+            "type": "long"
+          },
+          {
+            "name": "sea_level",
+            "type": ["null", "long"]
+          },
+          {
+            "name": "grnd_level",
+            "type": ["null", "long"]
+          }
+        ]
+      }
+    },
+    {
+      "name": "visibility",
+      "type": "long"
+    },
+    {
+      "name": "wind",
+      "type": {
+        "name": "windDetails",
+        "type": "record",
+        "fields": [
+          {
+            "name": "speed",
+            "type": "double"
+          },
+          {
+            "name": "deg",
+            "type": "long"
+          },
+          {
+            "name": "gust",
+            "type": ["null", "double"]
+          }
+        ]
+      }
+    },
+    {
+      "name": "clouds",
+      "type": {
+        "name": "cloudsDetails",
+        "type": "record",
+        "fields": [
+          {
+            "name": "all",
+            "type": "long"
+          }
+        ]
+      }
+    },
+    {
+      "name": "rain",
+      "type": [
+        "null",
+        {
+          "name": "rainDetails",
+          "type": "record",
+          "fields": [
+            {
+              "name": "oneHour",
+              "type": ["null", "double"]
+            },
+            {
+              "name": "threeHours",
+              "type": ["null", "double"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "snow",
+      "type": [
+        "null",
+        {
+          "name": "snowDetails",
+          "type": "record",
+          "fields": [
+            {
+              "name": "oneHour",
+              "type": ["null", "double"]
+            },
+            {
+              "name": "threeHours",
+              "type": ["null", "double"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "dt",
+      "type": "long"
+    },
+    {
+      "name": "sys",
+      "type": {
+        "name": "sysDetails",
+        "type": "record",
+        "fields": [
+          {
+            "name": "type",
+            "type": ["null", "long"]
+          },
+          {
+            "name": "id",
+            "type": ["null", "long"]
+          },
+          {
+            "name": "country",
+            "type": "string"
+          },
+          {
+            "name": "sunrise",
+            "type": "long"
+          },
+          {
+            "name": "sunset",
+            "type": "long"
+          }
+        ]
+      }
+    },
+    {
+      "name": "timezone",
+      "type": "long"
+    },
+    {
+      "name": "id",
+      "type": "long"
+    },
+    {
+      "name": "name",
+      "type": "string"
+    },
+    {
+      "name": "cod",
+      "type": "long"
+    }
+  ]
+}

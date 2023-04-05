@@ -1,0 +1,12 @@
+{
+  "sqlfluff.executablePath": "${workspaceFolder}/.venv/bin/sqlfluff",
+  "[sql]": { "editor.defaultFormatter": "dorzey.vscode-sqlfluff" },
+  "[hql]": { "editor.defaultFormatter": "dorzey.vscode-sqlfluff" },
+  "[python]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "ms-python.python"
+  },
+  "sqlfluff.dialect": "hive",
+  "sqlfluff.format.enabled": true,
+  "python.formatting.provider": "black"
+}

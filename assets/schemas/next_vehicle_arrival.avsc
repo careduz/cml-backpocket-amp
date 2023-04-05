@@ -1,0 +1,31 @@
+{
+  "name": "next_vehicle_arrival",
+  "type": "record",
+  "namespace": "ttc.real_time",
+  "fields": [
+    { "name": "route_id", "type": "string" },
+    { "name": "route_title", "type": "string" },
+    { "name": "stop_tag", "type": "string" },
+    { "name": "stop_title", "type": "string" },
+    { "name": "trip_tag", "type": "string" },
+    { "name": "is_departure", "type": "boolean" },
+    { "name": "vehicle", "type": "string" },
+    { "name": "block", "type": "string" },
+    { "name": "dir_tag", "type": "string" },
+    { "name": "branch", "type": "string" },
+    { "name": "arriving_in_minutes", "type": "int" },
+    { "name": "arriving_in_seconds", "type": "int" },
+    {
+      "name": "arriving_on_epoch_time",
+      "type": "long",
+      "logicalType": "timestamp-millis"
+    },
+    {
+      "name": "published_epoch_time",
+      "type": "long",
+      "logicalType": "timestamp-millis"
+    },
+    { "name": "is_affected_by_layover", "type": "boolean" },
+    { "name": "message_id", "type": "string" }
+  ]
+}

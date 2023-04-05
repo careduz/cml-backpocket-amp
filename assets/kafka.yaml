@@ -1,0 +1,5 @@
+topics:
+  - name: foo
+    partitions: 1
+    retention_ms: 604800000
+  - name: bar

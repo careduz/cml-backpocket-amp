@@ -1,0 +1,80 @@
+{
+  "name": "stop",
+  "type": "record",
+  "namespace": "raw",
+  "fields": [
+    { "name": "stop_id", "type": "string" },
+    {
+      "name": "stop_code",
+      "type": ["null", "string"],
+      "doc": "Short text or a number that identifies the location for riders. These codes are often used in phone-based transit information systems or printed on signage to make it easier for riders to get information for a particular location. The stop_code can be the same as stop_id if it is public facing. This field should be left empty for locations without a code presented to riders.",
+      "default": null
+    },
+    {
+      "name": "stop_name",
+      "doc": "Name of the location. Use a name that people will understand in the local and tourist vernacular.\n\nWhen the location is a boarding area (location_type=4), the stop_name should contains the name of the boarding area as displayed by the agency. It could be just one letter (like on some European intercity railway stations), or text like “Wheelchair boarding area” (NYC’s Subway) or “Head of short trains” (Paris’ RER).",
+      "type": ["null", "string"],
+      "default": null
+    },
+    {
+      "name": "stop_desc",
+      "type": ["null", "string"],
+      "doc": "Description of the location that provides useful, quality information. Do not simply duplicate the name of the location.",
+      "default": null
+    },
+    {
+      "name": "stop_lat",
+      "type": ["null", "double"],
+      "doc": "Latitude of the location.\n\nConditionally Required:\n• Required for locations which are stops (location_type=0), stations (location_type=1) or entrances/exits (location_type=2).\n• Optional for locations which are generic nodes (location_type=3) or boarding areas (location_type=4).",
+      "default": null
+    },
+    {
+      "name": "stop_lon",
+      "type": ["null", "double"],
+      "doc": "Longitude of the location.\n\nConditionally Required:\n• Required for locations which are stops (location_type=0), stations (location_type=1) or entrances/exits (location_type=2).\n• Optional for locations which are generic nodes (location_type=3) or boarding areas (location_type=4).",
+      "default": null
+    },
+    {
+      "name": "zone_id",
+      "type": ["null", "string"],
+      "doc": "Identifies the fare zone for a stop. This field is required if providing fare information using fare_rules.txt, otherwise it is optional. If this record represents a station or station entrance, the zone_id is ignored.",
+      "default": null
+    },
+    {
+      "name": "stop_url",
+      "type": ["null", "string"],
+      "doc": "URL of a web page about the location. This should be different from the agency.agency_url and the routes.route_url field values.",
+      "default": null
+    },
+    {
+      "name": "location_type",
+      "type": ["null", "int"],
+      "doc": "Type of the location:\n• 0 (or empty): Stop (or Platform). A location where passengers board or disembark from a transit vehicle. Is called a platform when defined within a parent_station.\n• 1: Station. A physical structure or area that contains one or more platform.\n• 2: Entrance/Exit. A location where passengers can enter or exit a station from the street. If an entrance/exit belongs to multiple stations, it can be linked by pathways to both, but the data provider must pick one of them as parent.\n• 3: Generic Node. A location within a station, not matching any other location_type, which can be used to link together pathways define in pathways.txt.\n• 4: Boarding Area. A specific location on a platform, where passengers can board and/or alight vehicles.",
+      "default": null
+    },
+    {
+      "name": "parent_station",
+      "type": ["null", "string"],
+      "doc": "Defines hierarchy between the different locations defined in stops.txt. It contains the ID of the parent location, as followed:\n• Stop/platform (location_type=0): the parent_station field contains the ID of a station.\n• Station (location_type=1): this field must be empty.\n• Entrance/exit (location_type=2) or generic node (location_type=3): the parent_station field contains the ID of a station (location_type=1)\n• Boarding Area (location_type=4): the parent_station field contains ID of a platform.\n\nConditionally Required:\n• Required for locations which are entrances (location_type=2), generic nodes (location_type=3) or boarding areas (location_type=4).\n• Optional for stops/platforms (location_type=0).\n• Forbidden for stations (location_type=1).",
+      "default": null
+    },
+    {
+      "name": "stop_timezone",
+      "type": ["null", "string"],
+      "doc": "Timezone of the location. If the location has a parent station, it inherits the parent station’s timezone instead of applying its own. Stations and parentless stops with empty stop_timezone inherit the timezone specified by agency.agency_timezone. If stop_timezone values are provided, the times in stop_times.txt should be entered as the time since midnight in the timezone specified by agency.agency_timezone. This ensures that the time values in a trip always increase over the course of a trip, regardless of which timezones the trip crosses.",
+      "default": null
+    },
+    {
+      "name": "wheelchair_boarding",
+      "type": ["null", "int"],
+      "doc": "Indicates whether wheelchair boardings are possible from the location. Valid options are:\n\nFor parentless stops:\n0 or empty - No accessibility information for the stop.\n1 - Some vehicles at this stop can be boarded by a rider in a wheelchair.\n2 - Wheelchair boarding is not possible at this stop.\n\nFor child stops:\n0 or empty - Stop will inherit its wheelchair_boarding behavior from the parent station, if specified in the parent.\n1 - There exists some accessible path from outside the station to the specific stop/platform.\n2 - There exists no accessible path from outside the station to the specific stop/platform.\n\nFor station entrances/exits:\n0 or empty - Station entrance will inherit its wheelchair_boarding behavior from the parent station, if specified for the parent.\n1 - Station entrance is wheelchair accessible.\n2 - No accessible path from station entrance to stops/platforms.",
+      "default": null
+    },
+    {
+      "name": "extract_time",
+      "type": ["null", "long"],
+      "logicalType": "timestamp-millis",
+      "default": null
+    }
+  ]
+}

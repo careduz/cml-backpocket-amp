@@ -1,0 +1,54 @@
+{
+  "name": "stop_time",
+  "type": "record",
+  "namespace": "raw",
+  "fields": [
+    { "name": "trip_id", "type": "string" },
+    {
+      "name": "arrival_time",
+      "type": "string",
+      "doc": "24-hour HH:MM:SS - Arrival time at a specific stop for a specific trip on a route. If there are not separate times for arrival and departure at a stop, enter the same value for arrival_time and departure_time. For times occurring after midnight on the service day, enter the time as a value greater than 24:00:00 in HH:MM:SS local time for the day on which the trip schedule begins.\n\nScheduled stops where the vehicle strictly adheres to the specified arrival and departure times are timepoints. If this stop is not a timepoint, it is recommended to provide an estimated or interpolated time. If this is not available, arrival_time can be left empty. Further, indicate that interpolated times are provided with timepoint=0. If interpolated times are indicated with timepoint=0, then time points must be indicated with timepoint=1. Provide arrival times for all stops that are time points. An arrival time must be specified for the first and the last stop in a trip."
+    },
+    {
+      "name": "departure_time",
+      "type": "string",
+      "doc": "24-hour HH:MM:SS - Departure time from a specific stop for a specific trip on a route. For times occurring after midnight on the service day, enter the time as a value greater than 24:00:00 in HH:MM:SS local time for the day on which the trip schedule begins. If there are not separate times for arrival and departure at a stop, enter the same value for arrival_time and departure_time. See the arrival_time description for more details about using timepoints correctly.\n\nThe departure_time field should specify time values whenever possible, including non-binding estimated or interpolated times between timepoints."
+    },
+    { "name": "stop_id", "type": "string" },
+    {
+      "name": "stop_sequence",
+      "type": "string",
+      "doc": "Order of stops for a particular trip. The values must increase along the trip but do not need to be consecutive."
+    },
+    {
+      "name": "stop_headsign",
+      "type": ["null", "string"],
+      "doc": "Text that appears on signage identifying the trip's destination to riders. This field overrides the default trips.trip_headsign when the headsign changes between stops. If the headsign is displayed for an entire trip, use trips.trip_headsign instead.\n\nA stop_headsign value specified for one stop_time does not apply to subsequent stop_times in the same trip. If you want to override the trip_headsign for multiple stop_times in the same trip, the stop_headsign value must be repeated in each stop_time row.",
+      "default": null
+    },
+    {
+      "name": "pickup_type",
+      "type": ["null", "int"],
+      "doc": "Indicates pickup method. Valid options are:\n\n0 or empty - Regularly scheduled pickup.\n1 - No pickup available.\n2 - Must phone agency to arrange pickup.\n3 - Must coordinate with driver to arrange pickup.",
+      "default": null
+    },
+    {
+      "name": "drop_off_type",
+      "type": ["null", "int"],
+      "doc": "Indicates drop off method. Valid options are:\n\n0 or empty - Regularly scheduled drop off.\n1 - No drop off available.\n2 - Must phone agency to arrange drop off.\n3 - Must coordinate with driver to arrange drop off.",
+      "default": null
+    },
+    {
+      "name": "shape_dist_traveled",
+      "type": ["null", "float"],
+      "doc": "Actual distance traveled along the associated shape, from the first stop to the stop specified in this record. This field specifies how much of the shape to draw between any two stops during a trip. Must be in the same units used in shapes.txt. Values used for shape_dist_traveled must increase along with stop_sequence; they cannot be used to show reverse travel along a route.",
+      "default": null
+    },
+    {
+      "name": "extract_time",
+      "type": ["null", "long"],
+      "logicalType": "timestamp-millis",
+      "default": null
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "shape",
+  "type": "record",
+  "namespace": "raw",
+  "fields": [
+    { "name": "shape_id", "type": "string" },
+    { "name": "shape_pt_lat", "type": "float" },
+    { "name": "shape_pt_lon", "type": "float" },
+    {
+      "name": "shape_pt_sequence",
+      "type": "int",
+      "doc": "Sequence in which the shape points connect to form the shape. Values must increase along the trip but do not need to be consecutive."
+    },
+    {
+      "name": "shape_dist_travele",
+      "type": ["null", "string"],
+      "doc": "Actual distance traveled along the shape from the first shape point to the point specified in this record. Used by trip planners to show the correct portion of the shape on a map. Values must increase along with shape_pt_sequence; they cannot be used to show reverse travel along a route. Distance units must be consistent with those used in stop_times.txt.",
+      "default": null
+    },
+    {
+      "name": "extract_time",
+      "type": ["null", "long"],
+      "logicalType": "timestamp-millis",
+      "default": null
+    }
+  ]
+}

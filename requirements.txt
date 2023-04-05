@@ -1,0 +1,2 @@
+apache-atlas==0.0.12
+pandas==1.5.3

@@ -1,0 +1,102 @@
+{
+  "name": "openweather_current_flat",
+  "type": "record",
+  "namespace": "openweather.current.flat",
+  "fields": [
+    {
+      "name": "longitude",
+      "type": "double"
+    },
+    {
+      "name": "latitude",
+      "type": "double"
+    },
+    {
+      "name": "temperature",
+      "type": "double"
+    },
+    {
+      "name": "temperatureMin",
+      "type": "double"
+    },
+    {
+      "name": "temperatureMax",
+      "type": "double"
+    },
+    {
+      "name": "feelsLike",
+      "type": "double"
+    },
+    {
+      "name": "pressure",
+      "type": "long"
+    },
+    {
+      "name": "humidity",
+      "type": "long"
+    },
+    {
+      "name": "visibility",
+      "type": "long"
+    },
+    {
+      "name": "windSpeed",
+      "type": "double"
+    },
+    {
+      "name": "windDirectionDegrees",
+      "type": "long"
+    },
+    {
+      "name": "windGust",
+      "type": ["null", "double"]
+    },
+    {
+      "name": "cloudiness",
+      "type": "long"
+    },
+    {
+      "name": "rainLast1Hour",
+      "type": ["null", "double"]
+    },
+    {
+      "name": "rainLast3Hours",
+      "type": ["null", "double"]
+    },
+    {
+      "name": "snowLast1Hour",
+      "type": ["null", "double"]
+    },
+    {
+      "name": "snowLast3Hours",
+      "type": ["null", "double"]
+    },
+    {
+      "name": "dateTime",
+      "type": "long",
+      "logicalType": "timestamp-millis"
+    },
+    {
+      "name": "sunriseTime",
+      "type": "long",
+      "logicalType": "timestamp-millis"
+    },
+    {
+      "name": "sunsetTime",
+      "type": "long",
+      "logicalType": "timestamp-millis"
+    },
+    {
+      "name": "timezone",
+      "type": "long"
+    },
+    {
+      "name": "countryCode",
+      "type": "string"
+    },
+    {
+      "name": "city",
+      "type": "string"
+    }
+  ]
+}
