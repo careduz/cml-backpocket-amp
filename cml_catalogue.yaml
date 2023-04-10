@@ -13,5 +13,5 @@ entries:
     tags:
       - Open Data
       - Atlas
-    git_url: "https://github.com/ogakulov/CML_AMP_Churn_Prediction_mlflow"
+    git_url: "https://github.com/careduz/cml-backpocket-amp"
     is_prototype: true
