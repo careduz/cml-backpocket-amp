@@ -1,0 +1,20 @@
+name: Backpocket
+
+entries:
+  - title: Load open data catalogues
+    label: churn-prediction
+    short_description: Load open data catalogues into Atlas for exploration.
+    long_description: >-
+      Create Atlas entities from the open data catalogues from the governments of 
+      Canada, Ontario, and Toronto. The idea is to demonstrate how data sources external
+      to the Cloudera Data Platform can be catalogued, filtered, and then consumed for 
+      further analysis and experimentation.
+    image_path: >-
+      https://raw.githubusercontent.com/cloudera/Applied-ML-Prototypes/master/images/churn-prediction.jpg
+    tags:
+      - Churn Prediction
+      - Logistic Regression
+      - Explainability
+      - Lime
+    git_url: "https://github.com/ogakulov/CML_AMP_Churn_Prediction_mlflow"
+    is_prototype: true
