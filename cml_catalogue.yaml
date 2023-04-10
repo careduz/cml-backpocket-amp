@@ -9,8 +9,7 @@ entries:
       Canada, Ontario, and Toronto. The idea is to demonstrate how data sources external
       to the Cloudera Data Platform can be catalogued, filtered, and then consumed for 
       further analysis and experimentation.
-    image_path: >-
-      https://raw.githubusercontent.com/cloudera/Applied-ML-Prototypes/master/images/churn-prediction.jpg
+    image_path: "https://cdn.jsdelivr.net/gh/ogakulov/CML_AMP_Churn_Prediction_mlflow@347c9d4755fc161247b9fe80ad3e5ab96c5167e1/images/CML_workshop_cover.png"
     tags:
       - Churn Prediction
       - Logistic Regression
