@@ -5,19 +5,20 @@ specification_version: 1.0
 prototype_version: 2.0
 date: "2022-03-29"
 
+environment_variables:
+  DATALAKE_ATLAS_ENDPOINT:
+    description: >-
+      URL can be found in CDP Management Console > Environments > Environment > Data Lake > Endpoints > Atlas.
+      It looks like: https://{{ datalake_name }}-gateway.{{ env_name }}.a465-9q4k.cloudera.site/{{ datalake_name }}/cdp-proxy-api/atlas/api/atlas/.
+
 runtimes:
   - editor: Workbench
     kernel: Python 3.9
     edition: Standard
 
 tasks:
-  - type: create_job
+  - type: run_session
     name: Install dependencies
-    entity_label: install_deps
     script: scripts/install_dependencies.py
-    arguments: None
-    cpu: 2
-    memory: 4
-    short_summary: Create job to install project dependencies.
-    environment:
-      TASK_TYPE: CREATE/RUN_JOB
+    cpu: 1
+    memory: 2
