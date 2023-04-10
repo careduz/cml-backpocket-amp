@@ -9,7 +9,7 @@ environment_variables:
   DATALAKE_ATLAS_ENDPOINT:
     description: >-
       URL can be found in CDP Management Console > Environments > Environment > Data Lake > Endpoints > Atlas.
-      It looks like: https://{{ datalake_name }}-gateway.{{ env_name }}.a465-9q4k.cloudera.site/{{ datalake_name }}/cdp-proxy-api/atlas/api/atlas/.
+      It looks like: https://{dl}-gateway.{env_name}.a465-9q4k.cloudera.site/{dl}/cdp-proxy-api/atlas/api/atlas/
 
 runtimes:
   - editor: Workbench
@@ -17,8 +17,26 @@ runtimes:
     edition: Standard
 
 tasks:
-  - type: run_session
+  - type: create_job
     name: Install dependencies
+    entity_label: install_dependencies
     script: scripts/install_dependencies.py
+    arguments: None
+    cpu: 1
+    memory: 4
+    short_summary: Create job to install project dependencies.
+    environment:
+      TASK_TYPE: CREATE/RUN_JOB
+
+  - type: run_job
+    entity_label: install_dependencies
+    short_summary: Running install dependencies job.
+    long_summary: >-
+      Running the job to install dependencies.  Note that this requires at least 2GB of memory
+
+  - type: run_session
+    name: Catalogue open data
+    script: code/load_open_data_catalogues.py
+    short_summary: Create Atlas entities for open data catalogues of Toronto, Ontario, and Canada
     cpu: 1
     memory: 2
