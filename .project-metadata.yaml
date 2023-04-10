@@ -34,9 +34,19 @@ tasks:
     long_summary: >-
       Running the job to install dependencies.  Note that this requires at least 2GB of memory
 
-  - type: run_session
-    name: Catalogue open data
+  - type: create_job
+    name: Catalogue open data sites
+    entity_label: load_open_data_catalogues
     script: code/load_open_data_catalogues.py
+    arguments: None
+    cpu: 1
+    memory: 2
     short_summary: Create Atlas entities for open data catalogues of Toronto, Ontario, and Canada
-    cpu: 2
-    memory: 4
+    environment:
+      TASK_TYPE: CREATE/RUN_JOB
+
+  - type: run_job
+    entity_label: load_open_data_catalogues
+    short_summary: Running catalogue load job.
+    long_summary: >-
+      Running the job to catalogue the open data website
