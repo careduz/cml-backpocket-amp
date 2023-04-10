@@ -38,5 +38,5 @@ tasks:
     name: Catalogue open data
     script: code/load_open_data_catalogues.py
     short_summary: Create Atlas entities for open data catalogues of Toronto, Ontario, and Canada
-    cpu: 1
-    memory: 2
+    cpu: 2
+    memory: 4
